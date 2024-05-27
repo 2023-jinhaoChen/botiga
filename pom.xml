@@ -8,7 +8,7 @@
 		<version>3.3.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.acessadades</groupId>
+	<groupId>com.accesadades</groupId>
 	<artifactId>botiga</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>botiga</name>
