@@ -17,7 +17,7 @@ public class Subcategory implements Serializable{
     private long subcategory_id;
     @Column
     private String name;
-    @Column(name = "creation_at")
+    @Column(name = "created_at")
     private LocalDateTime creationDate;
     @Column(name = "updated_at")
     private LocalDateTime updateDate;
