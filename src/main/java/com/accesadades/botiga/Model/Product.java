@@ -25,7 +25,7 @@ public class Product implements Serializable{
     private float price;
     @Column
     private long units;
-    @Column(name = "creation_at")
+    @Column(name = "created_at")
     private LocalDateTime creationDate;
     @Column(name = "updated_at")
     private LocalDateTime updateDate;
