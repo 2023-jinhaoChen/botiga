@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Subcategory")
+@Table(name = "subcategory")
 public class Subcategory implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
