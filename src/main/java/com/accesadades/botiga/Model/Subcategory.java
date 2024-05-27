@@ -10,29 +10,18 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "products")
-public class Product implements Serializable{
+@Table(name = "Subcategory")
+public class Subcategory implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long product_id;
+    private long subcategory_id;
     @Column
     private String name;
-    @Column
-    private String description;
-    @Column
-    private String company;
-    @Column
-    private float price;
-    @Column
-    private long units;
     @Column(name = "creation_at")
     private LocalDateTime creationDate;
     @Column(name = "updated_at")
     private LocalDateTime updateDate;
-    // @Column
-    // private String subcategory;
-
     @ManyToOne(cascade=CascadeType.PERSIST)
-    @JoinColumn(name="subcategory_id")
-    private Subcategory subcategory;
+    @JoinColumn(name="category_id")
+    private Category category;
 }
