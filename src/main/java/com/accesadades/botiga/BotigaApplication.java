@@ -1,4 +1,4 @@
-package com.acessadades.botiga;
+package com.accesadades.botiga;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package com.acessadades.botiga;
+package com.accesadades.botiga;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
