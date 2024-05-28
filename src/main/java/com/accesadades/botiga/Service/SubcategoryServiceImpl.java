@@ -2,9 +2,12 @@ package com.accesadades.botiga.Service;
 
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.accesadades.botiga.Model.Subcategory;
 import com.accesadades.botiga.Repository.SubcategoryRepository;
 
+@Service
 public class SubcategoryServiceImpl implements SubcategoryService{
 
     @Autowired

@@ -46,19 +46,24 @@ public class WebController {
         return "search"; // Referencia a search.html en el directorio templates
     }
 
-    @RequestMapping(value = {"/form", "/products/desar"}, method = RequestMethod.POST)
+    @RequestMapping(value = "/form", method = RequestMethod.GET)
+    public String showForm(Model model) {
+        model.addAttribute("product", new Product());
+        return "form"; // Referencia a form.html en el directorio templates
+    }
+
+    @RequestMapping(value = "/products/desar", method = RequestMethod.POST)
     public String desar(
             @RequestParam(value = "nom", required = true) String name,
             @RequestParam(value = "descripcio", required = true) String description,
             @RequestParam(value = "fabricant", required = true) String company,
             @RequestParam(value = "preu", required = true) float price,
             @RequestParam(value = "unitats", required = true) int units,
-            @RequestParam(value = "subcategoria", required = true) Subcategory subcategory,
-
+            @RequestParam(value = "subcategoria", required = true) String subcategoryName, // Change to String
             Model model) {
 
         Product product = new Product();
-        //Subcategory newSubcategory = subcategoryService.findSubcategoryByName(subcategory);
+        Subcategory subcategory = subcategoryService.findSubcategoryByName(subcategoryName); // Fetch Subcategory object
         LocalDateTime create = LocalDateTime.now();
 
         product.setName(name);
@@ -72,8 +77,44 @@ public class WebController {
 
         productService.desar(product);
 
-        return "form"; 
+        return "redirect:/catalog"; // Redirect to catalog page after saving
     }
 
-  
+    // @RequestMapping(value = {"/products/desar", "/form"}, method = {RequestMethod.GET, RequestMethod.POST})
+    // public String desar(
+    //         @RequestParam(value = "nom", required = true) String name,
+    //         @RequestParam(value = "descripcio", required = true) String description,
+    //         @RequestParam(value = "fabricant", required = true) String company,
+    //         @RequestParam(value = "preu", required = true) float price,
+    //         @RequestParam(value = "unitats", required = true) int units,
+    //         @RequestParam(value = "subcategoria", required = true) String subcategory_name,
+
+    //         Model model) 
+    //         {
+
+    //     System.out.println("Received parameters: ");
+    //     System.out.println("Name: " + name);
+    //     System.out.println("Description: " + description);
+    //     System.out.println("Company: " + company);
+    //     System.out.println("Price: " + price);
+    //     System.out.println("Units: " + units);
+    //     System.out.println("Subcategory: " + subcategory_name);
+
+    //     Product product = new Product();
+    //     Subcategory subcategory = subcategoryService.findSubcategoryByName(subcategory_name);
+    //     LocalDateTime create = LocalDateTime.now();
+
+    //     product.setName(name);
+    //     product.setDescription(description);
+    //     product.setCompany(company);
+    //     product.setPrice(price);
+    //     product.setUnits(units);
+    //     product.setSubcategory(subcategory);
+    //     product.setCreationDate(create);
+    //     product.setUpdateDate(create);
+
+    //     productService.desar(product);
+
+    //     return "form"; 
+    // }
 }
