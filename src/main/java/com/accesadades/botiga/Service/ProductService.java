@@ -9,4 +9,5 @@ public interface ProductService {
     Product findProductsByName(String name);
     Set<Product> findAllProducts(String subcategory);
     void increasePrice(Product product);
+    Product desar(Product product);
 }

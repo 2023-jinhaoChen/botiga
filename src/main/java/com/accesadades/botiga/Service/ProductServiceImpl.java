@@ -31,4 +31,9 @@ public class ProductServiceImpl implements ProductService {
     public void increasePrice(Product product) {
 
     }
+
+    @Override
+    public Product desar(Product product) {
+        return productRepository.save(product);
+    }
 }
