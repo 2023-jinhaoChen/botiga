@@ -37,4 +37,15 @@ public class WebController {
         }
         return "search"; // Referencia a search.html en el directorio templates
     }
+
+    @RequestMapping(value = {"/form", "/products/desar"}, method = {RequestMethod.GET, RequestMethod.POST})
+    public String desar(@RequestParam(value = "name", required = false) String name, Model model) {
+        // if (name != null) {
+        //     Product product = productService.findProductsByName(name);
+        //     model.addAttribute("product", product);
+        // }
+        return "search"; // Referencia a search.html en el directorio templates
+    }
+
+  
 }
