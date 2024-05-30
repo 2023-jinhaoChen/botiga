@@ -18,22 +18,18 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Set<Product> findAllProducts(String subcategory) {
-        return null;
-    }
-
-    @Override
     public Product findProductsByName(String name) {
         return productRepository.findByName(name);
     }
 
     @Override
-    public void increasePrice(Product product) {
-
+    public void delete(Product product) {
+        productRepository.delete(product);
     }
 
     @Override
     public Product desar(Product product) {
         return productRepository.save(product);
     }
+
 }

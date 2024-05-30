@@ -14,16 +14,17 @@ public class SubcategoryServiceImpl implements SubcategoryService{
     private SubcategoryRepository subcategoryRepository;
     
     public Set<Subcategory> findAllSubcategories(){
-        return null;
+        return subcategoryRepository.findAll();
     }
     public Subcategory findSubcategoryByName(String name){
         return subcategoryRepository.findByName(name);
     }
-    public Set<Subcategory> findAllSubcategories(String subcategory){
-        return null;
-    }
     
     public Subcategory desar(Subcategory subcategory){
-        return null;
+        return subcategoryRepository.save(subcategory);
+    }
+
+    public void delete(Subcategory subcategory){
+        subcategoryRepository.delete(subcategory);
     }
 }
