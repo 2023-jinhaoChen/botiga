@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.accesadades.botiga.Model.Product;
 import com.accesadades.botiga.Model.Subcategory;
@@ -80,41 +81,10 @@ public class WebController {
         return "redirect:/catalog"; // Redirect to catalog page after saving
     }
 
-    // @RequestMapping(value = {"/products/desar", "/form"}, method = {RequestMethod.GET, RequestMethod.POST})
-    // public String desar(
-    //         @RequestParam(value = "nom", required = true) String name,
-    //         @RequestParam(value = "descripcio", required = true) String description,
-    //         @RequestParam(value = "fabricant", required = true) String company,
-    //         @RequestParam(value = "preu", required = true) float price,
-    //         @RequestParam(value = "unitats", required = true) int units,
-    //         @RequestParam(value = "subcategoria", required = true) String subcategory_name,
+    @RequestMapping(value = "/subcategories", method = RequestMethod.GET)
+    @ResponseBody
+    public Set<Subcategory> getAllSubcategories() {
+        return subcategoryService.findAllSubcategories();
+    }
 
-    //         Model model) 
-    //         {
-
-    //     System.out.println("Received parameters: ");
-    //     System.out.println("Name: " + name);
-    //     System.out.println("Description: " + description);
-    //     System.out.println("Company: " + company);
-    //     System.out.println("Price: " + price);
-    //     System.out.println("Units: " + units);
-    //     System.out.println("Subcategory: " + subcategory_name);
-
-    //     Product product = new Product();
-    //     Subcategory subcategory = subcategoryService.findSubcategoryByName(subcategory_name);
-    //     LocalDateTime create = LocalDateTime.now();
-
-    //     product.setName(name);
-    //     product.setDescription(description);
-    //     product.setCompany(company);
-    //     product.setPrice(price);
-    //     product.setUnits(units);
-    //     product.setSubcategory(subcategory);
-    //     product.setCreationDate(create);
-    //     product.setUpdateDate(create);
-
-    //     productService.desar(product);
-
-    //     return "form"; 
-    // }
 }
