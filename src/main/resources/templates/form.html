@@ -57,6 +57,26 @@
         }
     </style>
 </head>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const subcategoryInput = document.getElementById('subcategoria');
+        const subcategoryList = document.getElementById('subcategory-list');
+
+        subcategoryInput.addEventListener('focus', function() {
+            fetch('/subcategories')
+                .then(response => response.json())
+                .then(data => {
+                    subcategoryList.innerHTML = '';
+                    data.forEach(subcategory => {
+                        const option = document.createElement('option');
+                        option.value = subcategory.name;
+                        subcategoryList.appendChild(option);
+                    });
+                })
+                .catch(error => console.error('Error fetch subcategories:', error));
+        });
+    });
+</script>
 <body>
     <div class="container">
         <h1>Inserir Nou Producte</h1>
@@ -83,7 +103,8 @@
             </div>
             <div>
                 <label for="subcategoria">Subcategoria:</label>
-                <input type="text" id="subcategoria" name="subcategoria" required>
+                <input type="text" id="subcategoria" name="subcategoria" required list="subcategory-list">
+                <datalist id="subcategory-list"></datalist>
             </div>
             <div>
                 <button type="submit">Desar</button>
