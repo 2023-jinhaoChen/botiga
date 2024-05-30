@@ -1,13 +1,28 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-    <head>
-        <meta charset="UTF-8">
-        <title>Catàleg de productes</title>
-        <link th:href="@{/styles/style_catalog.css}" rel="stylesheet" />
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <title>Catàleg de productes</title>
+    <link th:href="@{/styles/style_catalog.css}" rel="stylesheet" />
+    <style>
+        .delete-button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+    </style>
+</head>
 <body>
     <h1>Catàleg de productes</h1>
-    <table border ="1">
+    <table border="1">
         <thead>
             <tr>
                 <th>Id del producte</th>
@@ -17,6 +32,7 @@
                 <th>Unitats en estoc</th>
                 <th>Preu unitat</th>
                 <th>Fabricant</th>
+                <th>Accions</th>
             </tr>
         </thead>
         <tbody th:each="product : ${products}">
@@ -28,6 +44,12 @@
                 <td th:text="${product.units}"></td>
                 <td th:text="${product.price}"></td>
                 <td th:text="${product.company}"></td>
+                <td>
+                    <form th:action="@{/deleteProduct}" method="post">
+                        <input type="hidden" name="name" th:value="${product.name}" /> 
+                        <button class="delete-button">Borrar</button>
+                    </form>                    
+                </td>
             </tr>
         </tbody>
     </table>
