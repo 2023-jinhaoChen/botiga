@@ -1,4 +1,4 @@
-# Aplicació de Gestió de catàleg de productes
+# Aplicació de gestió de catàleg de productes
 
 Aquesta aplicació permet als usuaris gestionar un catàleg de productes de manera eficient. Les funcionalitats principals inclouen:
 
