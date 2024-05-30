@@ -7,7 +7,6 @@ public interface ProductService {
  
     Set<Product> findAllProducts();
     Product findProductsByName(String name);
-    Set<Product> findAllProducts(String subcategory);
-    void increasePrice(Product product);
     Product desar(Product product);
+    void delete(Product product);
 }

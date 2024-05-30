@@ -1,12 +1,12 @@
 package com.accesadades.botiga.Service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import java.util.Set;
-import com.accesadades.botiga.Model.Product;
-import com.accesadades.botiga.Repository.ProductRepository;
+import com.accesadades.botiga.Model.Category;
 
-@Service
-public class CategoryService {
+public interface CategoryService {
+    Set<Category> findAllCategories();
+    Category findCategoryByName(String name);
+    Category desar(Category category);
+    void delete(Category category);
     
 }
